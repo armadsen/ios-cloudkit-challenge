@@ -69,7 +69,7 @@ class ContactsController {
 		guard let index = contacts.index(of: contact),
 			contact != newContact else { return } // Nothing to be done
 		
-		remove(contact: contact) { (error) in
+		cloudKitManager.delete(contact) { (error) in
 			guard error == nil else {
 				completion(error)
 				return
